@@ -43,28 +43,28 @@
 }
 
 body.light {
-  --bg:          #f5f0e8;
-  --bg2:         #ede8dc;
-  --bg3:         #e0dace;
-  --card:        #eeeade;
-  --border:      #b8c8a0;
-  --border2:     #7a9a5a;
-  --text:        #2a3a1a;
-  --text2:       #4a6a2a;
-  --text3:       #7a8a6a;
-  --accent1:     #3a7a1a;
-  --accent2:     #2a6010;
-  --accent3:     #5a9a2a;
-  --accent4:     #4a8820;
-  --warn:        #c08000;
-  --danger:      #c03030;
-  --link:        #1a6a2a;
-  --link-hover:  #0a5010;
-  --tag-bg:      #d8e8c0;
-  --tag-border:  #8aaa5a;
-  --shadow:      0 2px 8px rgba(60,100,30,0.15);
-  --glow:        0 0 12px rgba(60,150,30,0.2);
-  --scanline:    rgba(0,0,0,0.02);
+  --bg:          #f2eedf;
+  --bg2:         #e6e0cc;
+  --bg3:         #d8d2be;
+  --card:        #eae4d0;
+  --border:      #94b864;
+  --border2:     #528a28;
+  --text:        #1a2e08;
+  --text2:       #2e5210;
+  --text3:       #5a7240;
+  --accent1:     #2a6e08;
+  --accent2:     #1a5200;
+  --accent3:     #3a8a14;
+  --accent4:     #346010;
+  --warn:        #a06000;
+  --danger:      #b02020;
+  --link:        #1a5e18;
+  --link-hover:  #0a3c08;
+  --tag-bg:      #c8dca0;
+  --tag-border:  #5a8a2e;
+  --shadow:      0 2px 10px rgba(30,80,10,0.22);
+  --glow:        0 0 14px rgba(42,110,8,0.28);
+  --scanline:    rgba(0,0,0,0.025);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -117,8 +117,8 @@ body::before {
    ============================================================ */
 header {
   background: var(--bg2);
-  border-bottom: 2px solid var(--accent1);
-  padding: 12px 16px;
+  border-bottom: 3px solid var(--accent1);
+  padding: 10px 16px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -135,19 +135,33 @@ header {
   flex-wrap: wrap;
 }
 
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .logo {
   font-family: var(--font-display);
-  font-size: 32px;
+  font-size: 34px;
   color: var(--accent1);
-  text-shadow: 0 0 10px var(--accent1), 0 0 20px var(--accent4);
+  text-shadow: 0 0 12px var(--accent1), 0 0 24px var(--accent4);
   letter-spacing: 3px;
   line-height: 1;
   flex-shrink: 0;
 }
 
+body.light .logo {
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.15), 0 0 8px rgba(42,110,8,0.3);
+}
+
 .logo span {
   color: var(--warn);
   text-shadow: 0 0 10px var(--warn);
+}
+
+body.light .logo span {
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.12);
 }
 
 .header-meta {
@@ -410,20 +424,22 @@ select option { background: var(--bg3); color: var(--text); }
   display: inline-block;
   background: var(--tag-bg);
   border: 1px solid var(--tag-border);
-  color: var(--accent3);
+  color: var(--accent2);
   font-size: 11px;
-  padding: 2px 8px;
+  padding: 2px 9px;
   font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   cursor: pointer;
   transition: all 0.15s;
+  font-weight: bold;
 }
 
 .tag:hover, .tag.active {
   background: var(--accent1);
-  color: var(--bg);
-  border-color: var(--accent1);
+  color: #f2eedf;
+  border-color: var(--accent2);
+  box-shadow: 0 0 6px rgba(42,110,8,0.3);
 }
 
 /* ============================================================
@@ -437,6 +453,7 @@ select option { background: var(--bg3); color: var(--text); }
 .link-card {
   background: var(--card);
   border: 1px solid var(--border);
+  border-left: 3px solid var(--border2);
   padding: 12px 14px;
   transition: border-color 0.15s, box-shadow 0.15s;
   position: relative;
@@ -449,7 +466,8 @@ select option { background: var(--bg3); color: var(--text); }
 }
 
 .link-card:hover {
-  border-color: var(--border2);
+  border-color: var(--accent1);
+  border-left-color: var(--accent1);
   box-shadow: var(--shadow);
 }
 
@@ -962,10 +980,93 @@ a { color: var(--link); }
      ============================================================ -->
 <header>
   <div class="header-inner">
-    <div>
-      <div class="logo">SUPER<span>LINK</span>72</div>
-      <div class="header-meta">
-        <span id="headerCount" class="count">0</span> enlaces · <span id="headerCats">0</span> categorías
+    <div class="logo-block">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 22" width="66" height="80" style="image-rendering:pixelated;flex-shrink:0;margin-right:10px" shape-rendering="crispEdges">
+  <!-- === PELO === -->
+  <rect x="5" y="0" width="8" height="1" fill="#2a1500"/>
+  <rect x="4" y="1" width="10" height="1" fill="#2a1500"/>
+  <!-- === MASCARA (verde) === -->
+  <rect x="4" y="2" width="10" height="1" fill="#1a6b00"/>
+  <rect x="3" y="3" width="2"  height="2" fill="#1a6b00"/>
+  <rect x="13" y="3" width="2" height="2" fill="#1a6b00"/>
+  <!-- === CARA (piel) === -->
+  <rect x="5" y="3" width="8" height="3" fill="#f5c070"/>
+  <!-- nariz -->
+  <rect x="8" y="4" width="2" height="1" fill="#d4a060"/>
+  <!-- boca -->
+  <rect x="6" y="5" width="6" height="1" fill="#c07030"/>
+  <rect x="7" y="5" width="4" height="1" fill="#a05020"/>
+  <!-- === CUELLO === -->
+  <rect x="7" y="6" width="4" height="1" fill="#f5c070"/>
+  <!-- === CUERPO (traje verde) === -->
+  <rect x="3" y="7" width="12" height="6" fill="#1a6b00"/>
+  <!-- === ESCUDO (fondo amarillo, centrado) === -->
+  <rect x="5" y="7" width="8" height="6" fill="#e8c800"/>
+  <!-- contorno escudo -->
+  <rect x="5" y="7" width="8" height="1" fill="#c8a800"/>
+  <rect x="5" y="12" width="8" height="1" fill="#c8a800"/>
+  <rect x="5" y="7" width="1" height="6" fill="#c8a800"/>
+  <rect x="12" y="7" width="1" height="6" fill="#c8a800"/>
+
+  <!-- === LETRA S (pixel 3x5, posición x=6, y=8) === -->
+  <!-- fila 0: top bar -->
+  <rect x="6" y="8"  width="3" height="1" fill="#0a3a00"/>
+  <!-- fila 1: izq, hueco der -->
+  <rect x="6" y="9"  width="1" height="1" fill="#0a3a00"/>
+  <!-- fila 2: mid bar -->
+  <rect x="6" y="10" width="3" height="1" fill="#0a3a00"/>
+  <!-- fila 3: hueco izq, der -->
+  <rect x="8" y="11" width="1" height="1" fill="#0a3a00"/>
+  <!-- fila 4: bottom bar -->
+  <rect x="6" y="12" width="3" height="1" fill="#0a3a00"/>
+
+  <!-- === LETRA L (pixel 3x5, posición x=10, y=8) === -->
+  <!-- vertical izquierda -->
+  <rect x="10" y="8"  width="1" height="5" fill="#0a3a00"/>
+  <!-- base horizontal -->
+  <rect x="10" y="12" width="3" height="1" fill="#0a3a00"/>
+
+  <!-- === BRAZOS === -->
+  <rect x="1" y="7" width="2" height="5" fill="#1a6b00"/>
+  <rect x="15" y="7" width="2" height="5" fill="#1a6b00"/>
+  <!-- puños -->
+  <rect x="0" y="11" width="2" height="2" fill="#f5c070"/>
+  <rect x="16" y="11" width="2" height="2" fill="#f5c070"/>
+
+  <!-- === CAPA (roja, detrás de los brazos) === -->
+  <rect x="1" y="8"  width="1" height="8" fill="#cc2200"/>
+  <rect x="16" y="8" width="1" height="8" fill="#cc2200"/>
+  <rect x="1" y="15" width="3" height="1" fill="#cc2200"/>
+  <rect x="14" y="15" width="3" height="1" fill="#cc2200"/>
+  <!-- sombra capa -->
+  <rect x="2" y="8"  width="1" height="7" fill="#aa1800"/>
+  <rect x="15" y="8" width="1" height="7" fill="#aa1800"/>
+
+  <!-- === CINTURÓN === -->
+  <rect x="3" y="13" width="12" height="1" fill="#e8c800"/>
+  <rect x="7" y="13" width="4"  height="1" fill="#c8a800"/>
+  <!-- hebilla -->
+  <rect x="8" y="13" width="2" height="1" fill="#808000"/>
+
+  <!-- === PIERNAS === -->
+  <rect x="3"  y="14" width="5" height="5" fill="#145000"/>
+  <rect x="10" y="14" width="5" height="5" fill="#145000"/>
+  <!-- separación -->
+  <rect x="8"  y="14" width="2" height="5" fill="#1a6b00"/>
+
+  <!-- === BOTAS === -->
+  <rect x="3"  y="18" width="5" height="3" fill="#082000"/>
+  <rect x="10" y="18" width="5" height="3" fill="#082000"/>
+  <!-- brillo bota izq -->
+  <rect x="4"  y="19" width="2" height="1" fill="#1a4a00"/>
+  <!-- brillo bota der -->
+  <rect x="11" y="19" width="2" height="1" fill="#1a4a00"/>
+</svg>
+      <div>
+        <div class="logo">SUPER<span>LINK</span>72</div>
+        <div class="header-meta">
+          <span id="headerCount" class="count">0</span> enlaces · <span id="headerCats">0</span> categorías
+        </div>
       </div>
     </div>
     <div class="header-actions">

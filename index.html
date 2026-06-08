@@ -545,15 +545,21 @@ select option { background: var(--bg3); color: var(--text); }
 }
 
 .sublink-entry a {
-  font-size: 12px;
-  color: var(--link);
+  font-size: 13px;
+  color: var(--accent1);
   text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  transition: color 0.15s, text-shadow 0.15s;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
-.sublink-entry a:hover { color: var(--link-hover); text-decoration: underline; }
+.sublink-entry a:hover {
+  color: var(--link-hover);
+  text-shadow: 0 0 8px var(--accent1);
+}
 
 .sublink-label {
   font-size: 11px;
@@ -1488,14 +1494,14 @@ function renderLinks() {
 function renderLinkCard(l) {
   const dateStr = l.created ? new Date(l.created).toLocaleDateString('es-AR', { day:'2-digit', month:'2-digit', year:'2-digit' }) : '';
   const tags = (l.tags||[]).map(t => `<span class="tag" onclick="quickTagFilter('${escA(t)}')">${escH(t)}</span>`).join('');
-  const sublinksHtml = l.sublinks && l.sublinks.length > 0 ? `
+  const sublinksVisible = l.sublinks ? l.sublinks.filter(s=>s.url) : [];
+  const sublinksHtml = sublinksVisible.length > 0 ? `
     <div class="sublinks-section">
-      <button class="sublinks-toggle" onclick="toggleSublinks('sl_${l.id}')">▶ ${l.sublinks.length} SUBLINK${l.sublinks.length>1?'S':''}</button>
+      <button class="sublinks-toggle" onclick="toggleSublinks('sl_${l.id}')">▶ ${sublinksVisible.length} SUBLINK${sublinksVisible.length>1?'S':''}</button>
       <div class="sublinks-body" id="sl_${l.id}">
-        ${l.sublinks.filter(s=>s.url).map(s=>`
+        ${sublinksVisible.map(s=>`
           <div class="sublink-entry">
-            ${s.label ? `<span class="sublink-label">${escH(s.label)}:</span>` : ''}
-            <a href="${escH(s.url)}" target="_blank" rel="noopener">${escH(s.url)}</a>
+            <a href="${escH(s.url)}" target="_blank" rel="noopener" title="${escH(s.url)}">${escH(s.label || s.url)}</a>
           </div>
         `).join('')}
       </div>

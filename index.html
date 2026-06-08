@@ -964,6 +964,195 @@ a { color: var(--link); }
 .progress { background: var(--bg3); height: 4px; margin-top: 4px; }
 .progress-fill { background: var(--accent1); height: 4px; transition: width 0.4s; }
 
+
+/* ============================================================
+   SUPERCATEGORÍAS
+   ============================================================ */
+.supercat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--warn);
+  margin-bottom: 14px;
+  padding: 14px;
+  animation: fadeIn 0.3s ease;
+}
+
+.supercat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.supercat-emoji {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.supercat-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--warn);
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px rgba(232,200,0,0.3);
+  flex: 1;
+}
+
+body.light .supercat-name {
+  text-shadow: none;
+  color: var(--warn);
+}
+
+.supercat-badge {
+  font-size: 11px;
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--text3);
+  padding: 2px 8px;
+  font-family: var(--font-mono);
+}
+
+.supercat-actions { display: flex; gap: 6px; margin-left: auto; }
+
+.supercat-cats-current {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+  min-height: 26px;
+}
+
+.sc-assign-details {
+  border-top: 1px dashed var(--border2);
+  padding-top: 8px;
+}
+
+.sc-assign-summary {
+  font-size: 11px;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  padding: 4px 0;
+  transition: color 0.15s;
+}
+
+.sc-assign-summary:hover { color: var(--accent1); }
+.sc-assign-summary::-webkit-details-marker { display: none; }
+
+.sc-cat-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 8px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+}
+
+.sc-cat-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text2);
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+.sc-cat-label:hover {
+  border-color: var(--warn);
+  color: var(--warn);
+}
+
+.sc-cat-label.sc-cat-checked {
+  border-color: var(--warn);
+  background: var(--tag-bg);
+  color: var(--warn);
+  font-weight: bold;
+}
+
+.sc-cat-label.sc-cat-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.sc-cat-check {
+  font-size: 14px;
+  color: var(--accent1);
+}
+
+.sc-cat-checked .sc-cat-check { color: var(--warn); }
+
+.sc-cat-in {
+  font-size: 10px;
+  color: var(--text3);
+  margin-left: 2px;
+}
+
+/* Supercats en la vista BROWSE */
+.browse-supercat-group {
+  margin-bottom: 24px;
+}
+
+.browse-supercat-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg2);
+  border-left: 4px solid var(--warn);
+  border-bottom: 1px solid var(--border2);
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.browse-supercat-header:hover { background: var(--bg3); }
+
+.browse-supercat-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--warn);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.browse-supercat-meta {
+  font-size: 11px;
+  color: var(--text3);
+  margin-left: auto;
+}
+
+.browse-supercat-body { display: block; }
+.browse-supercat-body.collapsed { display: none; }
+
+.browse-cat-subgroup {
+  margin-bottom: 12px;
+  padding-left: 12px;
+  border-left: 2px solid var(--border2);
+}
+
+.browse-cat-label {
+  font-size: 11px;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  padding: 2px 0;
+}
+
+.browse-cat-label::before { content: '↳ '; color: var(--accent4); }
+
 /* ============================================================
    PRINT (report)
    ============================================================ */
@@ -981,91 +1170,87 @@ a { color: var(--link); }
 <header>
   <div class="header-inner">
     <div class="logo-block">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 22" width="66" height="80" style="image-rendering:pixelated;flex-shrink:0;margin-right:10px" shape-rendering="crispEdges">
-  <!-- === PELO === -->
-  <rect x="5" y="0" width="8" height="1" fill="#2a1500"/>
-  <rect x="4" y="1" width="10" height="1" fill="#2a1500"/>
-  <!-- === MASCARA (verde) === -->
-  <rect x="4" y="2" width="10" height="1" fill="#1a6b00"/>
-  <rect x="3" y="3" width="2"  height="2" fill="#1a6b00"/>
-  <rect x="13" y="3" width="2" height="2" fill="#1a6b00"/>
-  <!-- === CARA (piel) === -->
-  <rect x="5" y="3" width="8" height="3" fill="#f5c070"/>
-  <!-- nariz -->
-  <rect x="8" y="4" width="2" height="1" fill="#d4a060"/>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" width="72" height="72" style="image-rendering:pixelated;flex-shrink:0;margin-right:10px;align-self:center" shape-rendering="crispEdges">
+  <!-- PELO -->
+  <rect x="7" y="0" width="8" height="1" fill="#2a1500"/>
+  <rect x="6" y="1" width="10" height="1" fill="#2a1500"/>
+  <!-- MASCARA verde -->
+  <rect x="6" y="2" width="10" height="1" fill="#1a6b00"/>
+  <rect x="5" y="3" width="2"  height="2" fill="#1a6b00"/>
+  <rect x="15" y="3" width="2" height="2" fill="#1a6b00"/>
+  <!-- CARA piel -->
+  <rect x="7" y="3" width="8" height="3" fill="#f5c070"/>
+  <rect x="10" y="4" width="2" height="1" fill="#d4a060"/>
   <!-- boca -->
-  <rect x="6" y="5" width="6" height="1" fill="#c07030"/>
-  <rect x="7" y="5" width="4" height="1" fill="#a05020"/>
-  <!-- === CUELLO === -->
-  <rect x="7" y="6" width="4" height="1" fill="#f5c070"/>
-  <!-- === CUERPO (traje verde) === -->
-  <rect x="3" y="7" width="12" height="6" fill="#1a6b00"/>
-  <!-- === ESCUDO (fondo amarillo, centrado) === -->
-  <rect x="5" y="7" width="8" height="6" fill="#e8c800"/>
-  <!-- contorno escudo -->
-  <rect x="5" y="7" width="8" height="1" fill="#c8a800"/>
-  <rect x="5" y="12" width="8" height="1" fill="#c8a800"/>
-  <rect x="5" y="7" width="1" height="6" fill="#c8a800"/>
-  <rect x="12" y="7" width="1" height="6" fill="#c8a800"/>
+  <rect x="8"  y="5" width="6" height="1" fill="#c07030"/>
+  <rect x="9"  y="5" width="4" height="1" fill="#a05020"/>
+  <!-- CUELLO -->
+  <rect x="9" y="6" width="4" height="1" fill="#f5c070"/>
+  <!-- CUERPO traje -->
+  <rect x="5" y="7" width="12" height="6" fill="#1a6b00"/>
+  <!-- ESCUDO amarillo -->
+  <rect x="7" y="7" width="8" height="6" fill="#e8c800"/>
+  <rect x="7" y="7" width="8" height="1" fill="#c8a800"/>
+  <rect x="7" y="12" width="8" height="1" fill="#c8a800"/>
+  <rect x="7" y="7" width="1" height="6" fill="#c8a800"/>
+  <rect x="14" y="7" width="1" height="6" fill="#c8a800"/>
+  <!-- LETRA S (x=8, y=8, 3x5) -->
+  <rect x="8"  y="8"  width="3" height="1" fill="#0a3a00"/>
+  <rect x="8"  y="9"  width="1" height="1" fill="#0a3a00"/>
+  <rect x="8"  y="10" width="3" height="1" fill="#0a3a00"/>
+  <rect x="10" y="11" width="1" height="1" fill="#0a3a00"/>
+  <rect x="8"  y="12" width="3" height="1" fill="#0a3a00"/>
+  <!-- LETRA L (x=12, y=8, 3x5) -->
+  <rect x="12" y="8"  width="1" height="5" fill="#0a3a00"/>
+  <rect x="12" y="12" width="3" height="1" fill="#0a3a00"/>
 
-  <!-- === LETRA S (pixel 3x5, posición x=6, y=8) === -->
-  <!-- fila 0: top bar -->
-  <rect x="6" y="8"  width="3" height="1" fill="#0a3a00"/>
-  <!-- fila 1: izq, hueco der -->
-  <rect x="6" y="9"  width="1" height="1" fill="#0a3a00"/>
-  <!-- fila 2: mid bar -->
-  <rect x="6" y="10" width="3" height="1" fill="#0a3a00"/>
-  <!-- fila 3: hueco izq, der -->
-  <rect x="8" y="11" width="1" height="1" fill="#0a3a00"/>
-  <!-- fila 4: bottom bar -->
-  <rect x="6" y="12" width="3" height="1" fill="#0a3a00"/>
+  <!-- BRAZO IZQ — pose músculo: sube diagonal, codo arriba, puño junto a cabeza -->
+  <!-- antebrazo izq (diagonal subiendo) -->
+  <rect x="2"  y="7"  width="2" height="1" fill="#1a6b00"/>
+  <rect x="2"  y="8"  width="2" height="1" fill="#1a6b00"/>
+  <rect x="3"  y="9"  width="2" height="1" fill="#1a6b00"/>
+  <!-- biceps izq (hacia arriba) -->
+  <rect x="3"  y="5"  width="2" height="2" fill="#1a6b00"/>
+  <!-- puño izq arriba -->
+  <rect x="3"  y="3"  width="2" height="2" fill="#f5c070"/>
 
-  <!-- === LETRA L (pixel 3x5, posición x=10, y=8) === -->
-  <!-- vertical izquierda -->
-  <rect x="10" y="8"  width="1" height="5" fill="#0a3a00"/>
-  <!-- base horizontal -->
-  <rect x="10" y="12" width="3" height="1" fill="#0a3a00"/>
+  <!-- BRAZO DER — pose músculo simétrico -->
+  <rect x="18" y="7"  width="2" height="1" fill="#1a6b00"/>
+  <rect x="18" y="8"  width="2" height="1" fill="#1a6b00"/>
+  <rect x="17" y="9"  width="2" height="1" fill="#1a6b00"/>
+  <!-- biceps der -->
+  <rect x="17" y="5"  width="2" height="2" fill="#1a6b00"/>
+  <!-- puño der arriba -->
+  <rect x="17" y="3"  width="2" height="2" fill="#f5c070"/>
 
-  <!-- === BRAZOS === -->
-  <rect x="1" y="7" width="2" height="5" fill="#1a6b00"/>
-  <rect x="15" y="7" width="2" height="5" fill="#1a6b00"/>
-  <!-- puños -->
-  <rect x="0" y="11" width="2" height="2" fill="#f5c070"/>
-  <rect x="16" y="11" width="2" height="2" fill="#f5c070"/>
+  <!-- CAPA roja (costados, cae por detrás) -->
+  <rect x="3"  y="9"  width="1" height="7" fill="#cc2200"/>
+  <rect x="18" y="9"  width="1" height="7" fill="#cc2200"/>
+  <rect x="3"  y="15" width="3" height="1" fill="#cc2200"/>
+  <rect x="16" y="15" width="3" height="1" fill="#cc2200"/>
+  <rect x="4"  y="9"  width="1" height="6" fill="#aa1800"/>
+  <rect x="17" y="9"  width="1" height="6" fill="#aa1800"/>
 
-  <!-- === CAPA (roja, detrás de los brazos) === -->
-  <rect x="1" y="8"  width="1" height="8" fill="#cc2200"/>
-  <rect x="16" y="8" width="1" height="8" fill="#cc2200"/>
-  <rect x="1" y="15" width="3" height="1" fill="#cc2200"/>
-  <rect x="14" y="15" width="3" height="1" fill="#cc2200"/>
-  <!-- sombra capa -->
-  <rect x="2" y="8"  width="1" height="7" fill="#aa1800"/>
-  <rect x="15" y="8" width="1" height="7" fill="#aa1800"/>
+  <!-- CINTURÓN -->
+  <rect x="5"  y="13" width="12" height="1" fill="#e8c800"/>
+  <rect x="9"  y="13" width="4"  height="1" fill="#c8a800"/>
+  <rect x="10" y="13" width="2"  height="1" fill="#808000"/>
 
-  <!-- === CINTURÓN === -->
-  <rect x="3" y="13" width="12" height="1" fill="#e8c800"/>
-  <rect x="7" y="13" width="4"  height="1" fill="#c8a800"/>
-  <!-- hebilla -->
-  <rect x="8" y="13" width="2" height="1" fill="#808000"/>
+  <!-- PIERNAS -->
+  <rect x="5"  y="14" width="5" height="5" fill="#145000"/>
+  <rect x="12" y="14" width="5" height="5" fill="#145000"/>
+  <rect x="10" y="14" width="2" height="5" fill="#1a6b00"/>
 
-  <!-- === PIERNAS === -->
-  <rect x="3"  y="14" width="5" height="5" fill="#145000"/>
-  <rect x="10" y="14" width="5" height="5" fill="#145000"/>
-  <!-- separación -->
-  <rect x="8"  y="14" width="2" height="5" fill="#1a6b00"/>
-
-  <!-- === BOTAS === -->
-  <rect x="3"  y="18" width="5" height="3" fill="#082000"/>
-  <rect x="10" y="18" width="5" height="3" fill="#082000"/>
-  <!-- brillo bota izq -->
-  <rect x="4"  y="19" width="2" height="1" fill="#1a4a00"/>
-  <!-- brillo bota der -->
-  <rect x="11" y="19" width="2" height="1" fill="#1a4a00"/>
+  <!-- BOTAS -->
+  <rect x="5"  y="19" width="5" height="3" fill="#082000"/>
+  <rect x="12" y="19" width="5" height="3" fill="#082000"/>
+  <rect x="6"  y="20" width="2" height="1" fill="#1a4a00"/>
+  <rect x="13" y="20" width="2" height="1" fill="#1a4a00"/>
 </svg>
       <div>
         <div class="logo">SUPER<span>LINK</span>72</div>
         <div class="header-meta">
-          <span id="headerCount" class="count">0</span> enlaces · <span id="headerCats">0</span> categorías
+          <span id="headerCount" class="count">0</span> enlaces · <span id="headerCats">0</span> cat · <span id="headerSuperCats" style="color:var(--warn)">0</span> supercat
         </div>
       </div>
     </div>
@@ -1086,6 +1271,7 @@ a { color: var(--link); }
     <button class="tab active" onclick="switchTab('browse')">📋 ENLACES</button>
     <button class="tab" onclick="switchTab('add')">➕ AGREGAR</button>
     <button class="tab" onclick="switchTab('cats')">🗂 CATEGORÍAS</button>
+    <button class="tab" onclick="switchTab('supercats')">⚡ SUPERCATS</button>
     <button class="tab" onclick="switchTab('report')">📊 REPORTES</button>
     <button class="tab" onclick="switchTab('network')">🕸 RED</button>
     <button class="tab" onclick="switchTab('io')">💾 DATOS</button>
@@ -1135,6 +1321,31 @@ a { color: var(--link); }
     <div class="info-box">Las categorías sin enlaces pueden eliminarse. Las que tienen enlaces activos quedan protegidas.</div>
 
     <div class="cat-manage-list" id="catManageList"></div>
+  </div>
+
+  <!-- ======================== TAB: SUPERCATS ======================== -->
+  <div class="tab-content" id="tab-supercats">
+    <div class="section-title">⚡ SUPERCATEGORÍAS</div>
+    <div class="info-box">Agrupá tus categorías bajo una Supercategoría. Cada supercategoría puede contener varias categorías. Los enlaces mantienen su categoría original.</div>
+
+    <div class="supercat-create-form" id="supercatCreateForm">
+      <div class="form-group" style="display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap">
+        <div style="flex:1;min-width:180px">
+          <label>NOMBRE DE NUEVA SUPERCATEGORÍA</label>
+          <input type="text" id="newSuperCatInput" placeholder="EJ: TRABAJO, OCIO, INVESTIGACIÓN...">
+        </div>
+        <div style="flex:0 0 auto">
+          <label>EMOJI</label>
+          <div style="display:flex;gap:6px;align-items:center">
+            <div class="selected-emoji-display" id="scEmojiDisplay" onclick="toggleSCEmojiPicker()" style="font-size:20px;padding:6px 10px;cursor:pointer">⚡</div>
+            <button class="btn btn-primary" onclick="createSuperCat()">+ CREAR</button>
+          </div>
+        </div>
+      </div>
+      <div class="emoji-grid" id="scEmojiPicker" style="display:none;margin-top:6px"></div>
+    </div>
+
+    <div id="supercatList" style="margin-top:16px"></div>
   </div>
 
   <!-- ======================== TAB: REPORT ======================== -->
@@ -1232,7 +1443,7 @@ a { color: var(--link); }
 const STORE_KEY  = 'superlink72_data';
 const THEME_KEY  = 'superlink72_theme';
 
-let db = { links: [], categories: [], version: 2 };
+let db = { links: [], categories: [], supercats: [], version: 3 };
 
 function loadDB() {
   try {
@@ -1240,17 +1451,21 @@ function loadDB() {
     if (raw) {
       db = JSON.parse(raw);
       if (!db.version) {
-        // migrate
-        db.version = 2;
+        db.version = 3;
         db.links.forEach(l => {
           if (!l.sublinks) l.sublinks = [];
           if (!l.created)  l.created = Date.now();
           if (!l.emoji)    l.emoji = '🔗';
         });
       }
+      if (db.version === 2) {
+        db.version = 3;
+        if (!db.supercats) db.supercats = [];
+      }
     }
     if (!db.categories) db.categories = [];
-    if (!db.links)      db.links = [];
+    if (!db.supercats)  db.supercats  = [];
+    if (!db.links)      db.links      = [];
   } catch(e) {
     console.error('Error loading DB:', e);
   }
@@ -1291,14 +1506,15 @@ function switchTab(name) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + name).classList.add('active');
   const tabBtns = document.querySelectorAll('.tab');
-  const idx = ['browse','add','cats','report','network','io'].indexOf(name);
+  const idx = ['browse','add','cats','supercats','report','network','io'].indexOf(name);
   if (tabBtns[idx]) tabBtns[idx].classList.add('active');
   activeTab = name;
-  if (name === 'add')     renderAddForm('addFormContainer');
-  if (name === 'cats')    renderCatManage();
-  if (name === 'report')  renderReportFilters();
-  if (name === 'network') { setTimeout(renderNetwork, 100); }
-  if (name === 'browse')  renderLinks();
+  if (name === 'add')       renderAddForm('addFormContainer');
+  if (name === 'cats')      renderCatManage();
+  if (name === 'supercats') renderSuperCats();
+  if (name === 'report')    renderReportFilters();
+  if (name === 'network')   { setTimeout(renderNetwork, 100); }
+  if (name === 'browse')    renderLinks();
   window.scrollTo(0,0);
 }
 
@@ -1308,6 +1524,8 @@ function switchTab(name) {
 function updateHeader() {
   document.getElementById('headerCount').textContent = db.links.length;
   document.getElementById('headerCats').textContent  = db.categories.length;
+  const sc = document.getElementById('headerSuperCats');
+  if (sc) sc.textContent = db.supercats.length;
 }
 
 function renderStats() {
@@ -1317,11 +1535,12 @@ function renderStats() {
   const subTotal = db.links.reduce((s,l) => s + (l.sublinks ? l.sublinks.length : 0), 0);
   const grid = document.getElementById('statsGrid');
   if (total === 0) { grid.innerHTML = ''; return; }
+  const scCount = db.supercats.length;
   grid.innerHTML = `
     <div class="stat-card"><div class="stat-number">${total}</div><div class="stat-label">ENLACES</div></div>
+    <div class="stat-card"><div class="stat-number" style="color:var(--warn)">${scCount}</div><div class="stat-label">SUPERCATS</div></div>
     <div class="stat-card"><div class="stat-number">${cats}</div><div class="stat-label">CATEGORÍAS</div></div>
     <div class="stat-card"><div class="stat-number">${subTotal}</div><div class="stat-label">SUBLINKS</div></div>
-    <div class="stat-card"><div class="stat-number">${withSub}</div><div class="stat-label">CON SUBLINKS</div></div>
   `;
 }
 
@@ -1589,7 +1808,79 @@ function renderLinks() {
     return;
   }
 
-  grid.innerHTML = list.map(l => renderLinkCard(l)).join('');
+  // Si no hay filtro activo y hay supercats, mostrar vista agrupada
+  const noFilter = activeCatFilter === '__all__' && !query;
+  if (noFilter && db.supercats.length > 0) {
+    grid.innerHTML = renderGroupedBySuperCat(list);
+  } else {
+    grid.innerHTML = list.map(l => renderLinkCard(l)).join('');
+  }
+}
+
+
+function renderGroupedBySuperCat(list) {
+  let html = '';
+  const usedIds = new Set();
+
+  // Grupos con supercategoría
+  db.supercats.forEach(sc => {
+    const scLinks = list.filter(l => sc.cats.includes(l.category||''));
+    if (scLinks.length === 0) return;
+
+    // Agrupar por categoría dentro de la supercat
+    const catGroups = {};
+    scLinks.forEach(l => {
+      const c = l.category || 'SIN CATEGORÍA';
+      if (!catGroups[c]) catGroups[c] = [];
+      catGroups[c].push(l);
+      usedIds.add(l.id);
+    });
+
+    const scId = 'bsc_' + sc.id;
+    html += `
+      <div class="browse-supercat-group">
+        <div class="browse-supercat-header" onclick="toggleBrowseSC('${scId}')">
+          <span style="font-size:20px">${sc.emoji}</span>
+          <span class="browse-supercat-title">${escH(sc.name)}</span>
+          <span class="browse-supercat-meta">${scLinks.length} enlace${scLinks.length!==1?'s':''} · ${sc.cats.length} cat</span>
+          <span id="${scId}_arrow" style="color:var(--text3);font-size:12px">▼</span>
+        </div>
+        <div class="browse-supercat-body" id="${scId}">
+          ${Object.entries(catGroups).map(([cat, links]) => `
+            <div class="browse-cat-subgroup">
+              <div class="browse-cat-label">${escH(cat)} <span style="color:var(--accent4)">(${links.length})</span></div>
+              <div class="links-grid">${links.map(l => renderLinkCard(l)).join('')}</div>
+            </div>`).join('')}
+        </div>
+      </div>`;
+  });
+
+  // Links sin supercategoría asignada
+  const orphans = list.filter(l => !usedIds.has(l.id));
+  if (orphans.length > 0) {
+    html += `
+      <div class="browse-supercat-group">
+        <div class="browse-supercat-header" onclick="toggleBrowseSC('bsc_orphan')" style="border-left-color:var(--border2)">
+          <span style="font-size:20px">🗂</span>
+          <span class="browse-supercat-title" style="color:var(--text2)">SIN SUPERCATEGORÍA</span>
+          <span class="browse-supercat-meta">${orphans.length} enlace${orphans.length!==1?'s':''}</span>
+          <span id="bsc_orphan_arrow" style="color:var(--text3);font-size:12px">▼</span>
+        </div>
+        <div class="browse-supercat-body" id="bsc_orphan">
+          <div class="links-grid">${orphans.map(l => renderLinkCard(l)).join('')}</div>
+        </div>
+      </div>`;
+  }
+
+  return html;
+}
+
+function toggleBrowseSC(id) {
+  const body  = document.getElementById(id);
+  const arrow = document.getElementById(id + '_arrow');
+  if (!body) return;
+  const collapsed = body.classList.toggle('collapsed');
+  if (arrow) arrow.textContent = collapsed ? '▶' : '▼';
 }
 
 function renderLinkCard(l) {
@@ -1655,9 +1946,29 @@ function renderCatFilter() {
   const cats = [...new Set(db.links.map(l=>l.category).filter(Boolean))];
   const hasNocat = db.links.some(l=>!l.category);
   let html = `<span class="tag ${activeCatFilter==='__all__'?'active':''}" onclick="setCatFilter('__all__')">TODOS</span>`;
-  cats.forEach(c => {
-    html += `<span class="tag ${activeCatFilter===c?'active':''}" onclick="setCatFilter('${escA(c)}')">${escH(c)}</span>`;
+
+  // Separar cats por supercat para mostrarlas agrupadas en el filtro
+  const scAssigned = new Set();
+  db.supercats.forEach(sc => {
+    const scCats = cats.filter(c => sc.cats.includes(c));
+    if (scCats.length === 0) return;
+    html += `<span style="font-size:10px;color:var(--warn);align-self:center;padding:0 4px;letter-spacing:1px">${sc.emoji}${escH(sc.name)}:</span>`;
+    scCats.forEach(c => {
+      html += `<span class="tag ${activeCatFilter===c?'active':''}" onclick="setCatFilter('${escA(c)}')">${escH(c)}</span>`;
+      scAssigned.add(c);
+    });
   });
+
+  // Cats sin supercat
+  const freeCats = cats.filter(c => !scAssigned.has(c));
+  if (freeCats.length > 0) {
+    if (db.supercats.length > 0)
+      html += `<span style="font-size:10px;color:var(--text3);align-self:center;padding:0 4px">🗂 OTRAS:</span>`;
+    freeCats.forEach(c => {
+      html += `<span class="tag ${activeCatFilter===c?'active':''}" onclick="setCatFilter('${escA(c)}')">${escH(c)}</span>`;
+    });
+  }
+
   if (hasNocat) html += `<span class="tag ${activeCatFilter==='__nocat__'?'active':''}" onclick="setCatFilter('__nocat__')">SIN CATEGORÍA</span>`;
   div.innerHTML = html;
 }
@@ -1716,6 +2027,150 @@ function renderCatManage() {
         <span class="cat-manage-name">${escH(c)}</span>
         <span class="cat-manage-count">${count} enlace${count!==1?'s':''}</span>
         ${count === 0 ? `<button class="btn btn-danger btn-sm" onclick="deleteCategory('${escA(c)}')">✕</button>` : '<span style="width:44px"></span>'}
+      </div>`;
+  }).join('');
+}
+
+
+/* ============================================================
+   SUPERCATEGORÍAS
+   ============================================================ */
+let scSelectedEmoji = '⚡';
+
+const SC_EMOJI_POOL = ['⚡','🌟','🔥','🏆','💼','🎯','🚀','🧠','🌐','📦',
+  '🎨','🔬','📚','🎵','🏛️','💡','⚙️','🛡️','🌿','💎','🗺️','🔭','🎭','🤖','🧭'];
+
+function initSCEmojiPicker() {
+  const grid = document.getElementById('scEmojiPicker');
+  if (!grid || grid.children.length > 0) return;
+  grid.innerHTML = SC_EMOJI_POOL.map(e =>
+    `<button class="emoji-btn ${e===scSelectedEmoji?'selected':''}" onclick="selectSCEmoji('${e}')">${e}</button>`
+  ).join('');
+}
+
+function toggleSCEmojiPicker() {
+  initSCEmojiPicker();
+  const p = document.getElementById('scEmojiPicker');
+  p.style.display = p.style.display === 'none' ? 'flex' : 'none';
+}
+
+function selectSCEmoji(e) {
+  scSelectedEmoji = e;
+  document.getElementById('scEmojiDisplay').textContent = e;
+  document.querySelectorAll('#scEmojiPicker .emoji-btn').forEach(b =>
+    b.classList.toggle('selected', b.textContent === e));
+  document.getElementById('scEmojiPicker').style.display = 'none';
+}
+
+function createSuperCat() {
+  const name = document.getElementById('newSuperCatInput').value.trim().toUpperCase();
+  if (!name) { showToast('Ingresá un nombre', 'warn'); return; }
+  if (db.supercats.find(s => s.name === name)) { showToast('Ya existe esa supercategoría', 'warn'); return; }
+  db.supercats.push({ id: genId(), name, emoji: scSelectedEmoji, cats: [] });
+  saveDB();
+  document.getElementById('newSuperCatInput').value = '';
+  renderSuperCats();
+  showToast('✅ Supercategoría creada: ' + name);
+}
+
+function deleteSuperCat(id) {
+  if (!confirm('¿Eliminar esta supercategoría? Las categorías que contiene no se borran.')) return;
+  db.supercats = db.supercats.filter(s => s.id !== id);
+  saveDB();
+  renderSuperCats();
+  showToast('Supercategoría eliminada');
+}
+
+function toggleCatInSuperCat(scId, catName) {
+  const sc = db.supercats.find(s => s.id === scId);
+  if (!sc) return;
+  if (sc.cats.includes(catName)) {
+    sc.cats = sc.cats.filter(c => c !== catName);
+  } else {
+    // Verificar que esta categoría no esté ya en otra supercat
+    const alreadyIn = db.supercats.find(s => s.id !== scId && s.cats.includes(catName));
+    if (alreadyIn) {
+      showToast(`"${catName}" ya está en "${alreadyIn.name}". Quitala de ahí primero.`, 'warn');
+      return;
+    }
+    sc.cats.push(catName);
+  }
+  saveDB();
+  renderSuperCats();
+}
+
+function renameSuperCat(id) {
+  const sc = db.supercats.find(s => s.id === id);
+  if (!sc) return;
+  const newName = prompt('Nuevo nombre para la supercategoría:', sc.name);
+  if (!newName || !newName.trim()) return;
+  const upper = newName.trim().toUpperCase();
+  if (db.supercats.find(s => s.id !== id && s.name === upper)) {
+    showToast('Ese nombre ya existe', 'warn'); return;
+  }
+  sc.name = upper;
+  saveDB();
+  renderSuperCats();
+  showToast('✅ Renombrado a ' + upper);
+}
+
+function renderSuperCats() {
+  initSCEmojiPicker();
+  const container = document.getElementById('supercatList');
+  if (!container) return;
+
+  if (db.supercats.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="big">⚡</div>
+        <div>Todavía no hay supercategorías.</div>
+        <div style="margin-top:8px;font-size:11px;color:var(--text3)">Creá una arriba y agrupá tus categorías.</div>
+      </div>`;
+    return;
+  }
+
+  // Categorías disponibles (todas)
+  const allCats = db.categories;
+
+  container.innerHTML = db.supercats.map(sc => {
+    const linkCount = db.links.filter(l => sc.cats.includes(l.category||'')).length;
+
+    const catCheckboxes = allCats.length === 0
+      ? '<div style="color:var(--text3);font-size:12px">No hay categorías creadas todavía.</div>'
+      : allCats.map(cat => {
+          const checked = sc.cats.includes(cat);
+          const otherSC = !checked && db.supercats.find(s => s.id !== sc.id && s.cats.includes(cat));
+          const disabled = !!otherSC;
+          return `
+            <label class="sc-cat-label ${checked ? 'sc-cat-checked' : ''} ${disabled ? 'sc-cat-disabled' : ''}"
+                   onclick="${disabled ? '' : `toggleCatInSuperCat('${sc.id}','${cat.replace(/'/g,"\'")}');event.preventDefault()`}"
+                   title="${disabled ? 'Ya asignada a '+otherSC.name : ''}">
+              <span class="sc-cat-check">${checked ? '▣' : '▢'}</span>
+              ${cat}
+              ${disabled ? `<span class="sc-cat-in">(${otherSC.name})</span>` : ''}
+            </label>`;
+        }).join('');
+
+    const catTags = sc.cats.length > 0
+      ? sc.cats.map(c => `<span class="tag" style="cursor:default">${c}</span>`).join('')
+      : '<span style="color:var(--text3);font-size:11px">Sin categorías asignadas</span>';
+
+    return `
+      <div class="supercat-card">
+        <div class="supercat-header">
+          <span class="supercat-emoji">${sc.emoji}</span>
+          <span class="supercat-name">${escH(sc.name)}</span>
+          <span class="supercat-badge">${linkCount} enlace${linkCount!==1?'s':''}</span>
+          <div class="supercat-actions">
+            <button class="btn btn-sm" onclick="renameSuperCat('${sc.id}')">✏</button>
+            <button class="btn btn-sm btn-danger" onclick="deleteSuperCat('${sc.id}')">🗑</button>
+          </div>
+        </div>
+        <div class="supercat-cats-current">${catTags}</div>
+        <details class="sc-assign-details">
+          <summary class="sc-assign-summary">⚙ ASIGNAR / QUITAR CATEGORÍAS</summary>
+          <div class="sc-cat-grid">${catCheckboxes}</div>
+        </details>
       </div>`;
   }).join('');
 }
@@ -2367,10 +2822,14 @@ if (db.links.length === 0 && db.categories.length === 0) {
       created: Date.now() - 86400000
     }
   ];
+  db.supercats = [
+    { id: genId(), name: 'CONOCIMIENTO', emoji: '🧠', cats: ['CIENCIA','TECNOLOGÍA'] },
+    { id: genId(), name: 'ACTUALIDAD',   emoji: '🌐', cats: ['NOTICIAS'] }
+  ];
   saveDB();
   renderLinks();
   updateHeader();
-  setTimeout(() => showToast('👋 Bienvenido a SUPERLINK72. Se cargaron 3 enlaces de ejemplo.'), 800);
+  setTimeout(() => showToast('👋 Bienvenido a SUPERLINK72. Se cargaron datos de ejemplo.'), 800);
 }
 </script>
 </body>

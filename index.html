@@ -42,29 +42,131 @@
   --font-display:'VT323', monospace;
 }
 
+/* LIGHT MODE — PALETTES */
 body.light {
-  --bg:          #f2eedf;
-  --bg2:         #e6e0cc;
-  --bg3:         #d8d2be;
-  --card:        #eae4d0;
-  --border:      #94b864;
-  --border2:     #528a28;
-  --text:        #1a2e08;
-  --text2:       #2e5210;
-  --text3:       #5a7240;
-  --accent1:     #2a6e08;
-  --accent2:     #1a5200;
-  --accent3:     #3a8a14;
-  --accent4:     #346010;
-  --warn:        #a06000;
-  --danger:      #b02020;
-  --link:        #1a5e18;
-  --link-hover:  #0a3c08;
-  --tag-bg:      #c8dca0;
-  --tag-border:  #5a8a2e;
-  --shadow:      0 2px 10px rgba(30,80,10,0.22);
-  --glow:        0 0 14px rgba(42,110,8,0.28);
-  --scanline:    rgba(0,0,0,0.025);
+  --scanline: rgba(0,0,0,0.018);
+}
+
+/* AZUL (default light) */
+body.light,
+body.light[data-palette="blue"] {
+  --bg:          #eef3fb;
+  --bg2:         #dde8f6;
+  --bg3:         #ccdaf0;
+  --card:        #e6eef8;
+  --border:      #7aaad8;
+  --border2:     #2d72c4;
+  --text:        #0d2244;
+  --text2:       #1a4080;
+  --text3:       #4a6a9a;
+  --accent1:     #1a5fc8;
+  --accent2:     #0d46a0;
+  --accent3:     #2a7ae2;
+  --accent4:     #1055b0;
+  --warn:        #c07000;
+  --danger:      #cc2020;
+  --link:        #1248a8;
+  --link-hover:  #0a30780;
+  --tag-bg:      #c0d8f4;
+  --tag-border:  #4a90d4;
+  --shadow:      0 2px 10px rgba(20,80,180,0.22);
+  --glow:        0 0 14px rgba(26,95,200,0.28);
+}
+
+body.light[data-palette="red"] {
+  --bg:          #fbeef0;
+  --bg2:         #f5dde0;
+  --bg3:         #ecccd0;
+  --card:        #f8e6e8;
+  --border:      #d87a88;
+  --border2:     #c42d40;
+  --text:        #440d14;
+  --text2:       #801a26;
+  --text3:       #9a4a56;
+  --accent1:     #c81a2c;
+  --accent2:     #a00d1e;
+  --accent3:     #e22a3e;
+  --accent4:     #b01030;
+  --warn:        #c07000;
+  --danger:      #8b0000;
+  --link:        #a81228;
+  --link-hover:  #780a1e;
+  --tag-bg:      #f4c0c8;
+  --tag-border:  #d44a60;
+  --shadow:      0 2px 10px rgba(180,20,40,0.22);
+  --glow:        0 0 14px rgba(200,26,44,0.28);
+}
+
+body.light[data-palette="green"] {
+  --bg:          #eef8f1;
+  --bg2:         #d8f0de;
+  --bg3:         #c2e6ca;
+  --card:        #e4f4e9;
+  --border:      #70c088;
+  --border2:     #228844;
+  --text:        #0c3018;
+  --text2:       #185c30;
+  --text3:       #3c7c52;
+  --accent1:     #1a9440;
+  --accent2:     #0c7030;
+  --accent3:     #26b052;
+  --accent4:     #148038;
+  --warn:        #c07000;
+  --danger:      #cc2020;
+  --link:        #126830;
+  --link-hover:  #0a4820;
+  --tag-bg:      #b8e8c8;
+  --tag-border:  #3c9860;
+  --shadow:      0 2px 10px rgba(20,140,60,0.22);
+  --glow:        0 0 14px rgba(26,148,64,0.28);
+}
+
+body.light[data-palette="yellow"] {
+  --bg:          #fdf8e8;
+  --bg2:         #f8f0cc;
+  --bg3:         #f0e4b0;
+  --card:        #faf4d8;
+  --border:      #d8b840;
+  --border2:     #a88010;
+  --text:        #3a2c00;
+  --text2:       #6a4c00;
+  --text3:       #8a6c20;
+  --accent1:     #c89000;
+  --accent2:     #a87000;
+  --accent3:     #e0a800;
+  --accent4:     #b08000;
+  --warn:        #c07000;
+  --danger:      #cc2020;
+  --link:        #9a7000;
+  --link-hover:  #705000;
+  --tag-bg:      #f0d880;
+  --tag-border:  #c0a020;
+  --shadow:      0 2px 10px rgba(180,140,0,0.22);
+  --glow:        0 0 14px rgba(200,144,0,0.28);
+}
+
+body.light[data-palette="violet"] {
+  --bg:          #f3eefb;
+  --bg2:         #e6ddf6;
+  --bg3:         #d8ccee;
+  --card:        #ede6f8;
+  --border:      #9a78d8;
+  --border2:     #6428c4;
+  --text:        #200d44;
+  --text2:       #3c1a80;
+  --text3:       #664a9a;
+  --accent1:     #6c1ac8;
+  --accent2:     #520da0;
+  --accent3:     #822ae2;
+  --accent4:     #5e10b0;
+  --warn:        #c07000;
+  --danger:      #cc2020;
+  --link:        #5412a8;
+  --link-hover:  #3c0a78;
+  --tag-bg:      #d8c0f4;
+  --tag-border:  #8450d4;
+  --shadow:      0 2px 10px rgba(100,40,180,0.22);
+  --glow:        0 0 14px rgba(108,26,200,0.28);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -152,7 +254,7 @@ header {
 }
 
 body.light .logo {
-  text-shadow: 1px 1px 0 rgba(0,0,0,0.15), 0 0 8px rgba(42,110,8,0.3);
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.12), 0 0 8px rgba(0,0,0,0.15);
 }
 
 .logo span {
@@ -1154,6 +1256,71 @@ body.light .supercat-name {
 .browse-cat-label::before { content: '↳ '; color: var(--accent4); }
 
 /* ============================================================
+   PALETTE SELECTOR (light mode only)
+   ============================================================ */
+.palette-selector {
+  display: none;
+  gap: 6px;
+  align-items: center;
+}
+
+body.light .palette-selector { display: flex; }
+
+.palette-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.palette-btn:hover { transform: scale(1.2); }
+.palette-btn.active { border-color: var(--text); box-shadow: 0 0 6px rgba(0,0,0,0.4); }
+.palette-btn[data-p="blue"]   { background: #1a5fc8; }
+.palette-btn[data-p="red"]    { background: #c81a2c; }
+.palette-btn[data-p="green"]  { background: #1a9440; }
+.palette-btn[data-p="yellow"] { background: #c89000; }
+.palette-btn[data-p="violet"] { background: #6c1ac8; }
+
+/* ============================================================
+   SHIELD LOGO
+   ============================================================ */
+.shield-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  margin-right: 10px;
+  position: relative;
+}
+
+.shield-svg {
+  width: 52px;
+  height: 58px;
+  filter: drop-shadow(0 0 8px var(--accent1));
+  transition: filter 0.3s;
+}
+
+body.light .shield-svg {
+  filter: drop-shadow(0 0 5px var(--accent1));
+}
+
+.shield-emoji {
+  position: absolute;
+  font-size: 22px;
+  line-height: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -54%);
+  text-shadow: none;
+}
+
+/* ============================================================
    PRINT (report)
    ============================================================ */
 @media print {
@@ -1170,83 +1337,34 @@ body.light .supercat-name {
 <header>
   <div class="header-inner">
     <div class="logo-block">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" width="72" height="72" style="image-rendering:pixelated;flex-shrink:0;margin-right:10px;align-self:center" shape-rendering="crispEdges">
-  <!-- PELO -->
-  <rect x="7" y="0" width="8" height="1" fill="#2a1500"/>
-  <rect x="6" y="1" width="10" height="1" fill="#2a1500"/>
-  <!-- MASCARA verde -->
-  <rect x="6" y="2" width="10" height="1" fill="#1a6b00"/>
-  <rect x="5" y="3" width="2"  height="2" fill="#1a6b00"/>
-  <rect x="15" y="3" width="2" height="2" fill="#1a6b00"/>
-  <!-- CARA piel -->
-  <rect x="7" y="3" width="8" height="3" fill="#f5c070"/>
-  <rect x="10" y="4" width="2" height="1" fill="#d4a060"/>
-  <!-- boca -->
-  <rect x="8"  y="5" width="6" height="1" fill="#c07030"/>
-  <rect x="9"  y="5" width="4" height="1" fill="#a05020"/>
-  <!-- CUELLO -->
-  <rect x="9" y="6" width="4" height="1" fill="#f5c070"/>
-  <!-- CUERPO traje -->
-  <rect x="5" y="7" width="12" height="6" fill="#1a6b00"/>
-  <!-- ESCUDO amarillo -->
-  <rect x="7" y="7" width="8" height="6" fill="#e8c800"/>
-  <rect x="7" y="7" width="8" height="1" fill="#c8a800"/>
-  <rect x="7" y="12" width="8" height="1" fill="#c8a800"/>
-  <rect x="7" y="7" width="1" height="6" fill="#c8a800"/>
-  <rect x="14" y="7" width="1" height="6" fill="#c8a800"/>
-  <!-- LETRA S (x=8, y=8, 3x5) -->
-  <rect x="8"  y="8"  width="3" height="1" fill="#0a3a00"/>
-  <rect x="8"  y="9"  width="1" height="1" fill="#0a3a00"/>
-  <rect x="8"  y="10" width="3" height="1" fill="#0a3a00"/>
-  <rect x="10" y="11" width="1" height="1" fill="#0a3a00"/>
-  <rect x="8"  y="12" width="3" height="1" fill="#0a3a00"/>
-  <!-- LETRA L (x=12, y=8, 3x5) -->
-  <rect x="12" y="8"  width="1" height="5" fill="#0a3a00"/>
-  <rect x="12" y="12" width="3" height="1" fill="#0a3a00"/>
-
-  <!-- BRAZO IZQ — pose músculo: sube diagonal, codo arriba, puño junto a cabeza -->
-  <!-- antebrazo izq (diagonal subiendo) -->
-  <rect x="2"  y="7"  width="2" height="1" fill="#1a6b00"/>
-  <rect x="2"  y="8"  width="2" height="1" fill="#1a6b00"/>
-  <rect x="3"  y="9"  width="2" height="1" fill="#1a6b00"/>
-  <!-- biceps izq (hacia arriba) -->
-  <rect x="3"  y="5"  width="2" height="2" fill="#1a6b00"/>
-  <!-- puño izq arriba -->
-  <rect x="3"  y="3"  width="2" height="2" fill="#f5c070"/>
-
-  <!-- BRAZO DER — pose músculo simétrico -->
-  <rect x="18" y="7"  width="2" height="1" fill="#1a6b00"/>
-  <rect x="18" y="8"  width="2" height="1" fill="#1a6b00"/>
-  <rect x="17" y="9"  width="2" height="1" fill="#1a6b00"/>
-  <!-- biceps der -->
-  <rect x="17" y="5"  width="2" height="2" fill="#1a6b00"/>
-  <!-- puño der arriba -->
-  <rect x="17" y="3"  width="2" height="2" fill="#f5c070"/>
-
-  <!-- CAPA roja (costados, cae por detrás) -->
-  <rect x="3"  y="9"  width="1" height="7" fill="#cc2200"/>
-  <rect x="18" y="9"  width="1" height="7" fill="#cc2200"/>
-  <rect x="3"  y="15" width="3" height="1" fill="#cc2200"/>
-  <rect x="16" y="15" width="3" height="1" fill="#cc2200"/>
-  <rect x="4"  y="9"  width="1" height="6" fill="#aa1800"/>
-  <rect x="17" y="9"  width="1" height="6" fill="#aa1800"/>
-
-  <!-- CINTURÓN -->
-  <rect x="5"  y="13" width="12" height="1" fill="#e8c800"/>
-  <rect x="9"  y="13" width="4"  height="1" fill="#c8a800"/>
-  <rect x="10" y="13" width="2"  height="1" fill="#808000"/>
-
-  <!-- PIERNAS -->
-  <rect x="5"  y="14" width="5" height="5" fill="#145000"/>
-  <rect x="12" y="14" width="5" height="5" fill="#145000"/>
-  <rect x="10" y="14" width="2" height="5" fill="#1a6b00"/>
-
-  <!-- BOTAS -->
-  <rect x="5"  y="19" width="5" height="3" fill="#082000"/>
-  <rect x="12" y="19" width="5" height="3" fill="#082000"/>
-  <rect x="6"  y="20" width="2" height="1" fill="#1a4a00"/>
-  <rect x="13" y="20" width="2" height="1" fill="#1a4a00"/>
-</svg>
+      <div class="shield-logo">
+        <svg class="shield-svg" viewBox="0 0 52 58" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:var(--accent3);stop-opacity:1" />
+              <stop offset="100%" style="stop-color:var(--accent4);stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="shieldBorder" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:var(--accent1);stop-opacity:1" />
+              <stop offset="100%" style="stop-color:var(--accent2);stop-opacity:0.6" />
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+              <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- Shield body -->
+          <path d="M26,2 L50,12 L50,32 Q50,50 26,57 Q2,50 2,32 L2,12 Z"
+                fill="url(#shieldGrad)" stroke="url(#shieldBorder)" stroke-width="2.5"
+                filter="url(#glow)"/>
+          <!-- Shield inner border -->
+          <path d="M26,7 L45,15 L45,32 Q45,47 26,53 Q7,47 7,32 L7,15 Z"
+                fill="none" stroke="var(--accent1)" stroke-width="1" opacity="0.4"/>
+          <!-- Horizontal band -->
+          <rect x="2" y="22" width="48" height="6" fill="var(--accent1)" opacity="0.15" rx="1"/>
+        </svg>
+        <span class="shield-emoji">🔗</span>
+      </div>
       <div>
         <div class="logo">SUPER<span>LINK</span>72</div>
         <div class="header-meta">
@@ -1255,6 +1373,13 @@ body.light .supercat-name {
       </div>
     </div>
     <div class="header-actions">
+      <div class="palette-selector" id="paletteSelector" title="Color del modo claro">
+        <button class="palette-btn active" data-p="blue"   onclick="setPalette('blue')"   title="Azul"></button>
+        <button class="palette-btn"        data-p="red"    onclick="setPalette('red')"    title="Rojo"></button>
+        <button class="palette-btn"        data-p="green"  onclick="setPalette('green')"  title="Verde"></button>
+        <button class="palette-btn"        data-p="yellow" onclick="setPalette('yellow')" title="Amarillo"></button>
+        <button class="palette-btn"        data-p="violet" onclick="setPalette('violet')" title="Violeta"></button>
+      </div>
       <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀ CLARO</button>
       <button class="btn btn-primary fab-hide-on-mobile" onclick="openAddModal()">+ AGREGAR</button>
     </div>
@@ -1442,6 +1567,7 @@ body.light .supercat-name {
    ============================================================ */
 const STORE_KEY  = 'superlink72_data';
 const THEME_KEY  = 'superlink72_theme';
+const PALETTE_KEY = 'superlink72_palette';
 
 let db = { links: [], categories: [], supercats: [], version: 3 };
 
@@ -1477,14 +1603,22 @@ function saveDB() {
 }
 
 /* ============================================================
-   THEME
+   THEME & PALETTE
    ============================================================ */
 function toggleTheme() {
   const isLight = document.body.classList.toggle('light');
   localStorage.setItem(THEME_KEY, isLight ? 'light' : 'dark');
   document.getElementById('themeBtn').textContent = isLight ? '🌙 OSCURO' : '☀ CLARO';
-  document.querySelector('meta[name=theme-color]').setAttribute('content', isLight ? '#e0dace' : '#0a0f0a');
+  document.querySelector('meta[name=theme-color]').setAttribute('content', isLight ? '#dde8f6' : '#0a0f0a');
   renderNetwork();
+}
+
+function setPalette(p) {
+  document.body.setAttribute('data-palette', p);
+  localStorage.setItem(PALETTE_KEY, p);
+  document.querySelectorAll('.palette-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.p === p);
+  });
 }
 
 function loadTheme() {
@@ -1492,8 +1626,10 @@ function loadTheme() {
   if (saved === 'light') {
     document.body.classList.add('light');
     document.getElementById('themeBtn').textContent = '🌙 OSCURO';
-    document.querySelector('meta[name=theme-color]').setAttribute('content', '#e0dace');
+    document.querySelector('meta[name=theme-color]').setAttribute('content', '#dde8f6');
   }
+  const savedPalette = localStorage.getItem(PALETTE_KEY) || 'blue';
+  setPalette(savedPalette);
 }
 
 /* ============================================================
@@ -2273,22 +2409,50 @@ function exportPDF() {
     const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
     const pageW = doc.internal.pageSize.getWidth();
     const pageH = doc.internal.pageSize.getHeight();
-    const margin = 15;
-    const maxW = pageW - margin * 2;
+    const margin = 14;
+    const maxW   = pageW - margin * 2;
     let y = margin;
 
-    // Header
-    doc.setFillColor(10, 15, 10);
-    doc.rect(0, 0, pageW, 28, 'F');
-    doc.setTextColor(0, 255, 136);
-    doc.setFontSize(20);
-    doc.text('SUPERLINK72', margin, 14);
-    doc.setFontSize(9);
-    doc.setTextColor(140, 180, 140);
-    doc.text(`REPORTE · ${new Date().toLocaleDateString('es-AR')} · ${list.length} ENLACES`, margin, 22);
-    y = 36;
+    // ── PALETA B&N AHORRO DE TÓNER ─────────────────────────────
+    // Regla: cero rellenos sólidos, cero negros puros en bloques,
+    // solo texto en escala de grises + bordes de 0.1-0.2 pt.
+    const C = {
+      black:     [0,   0,   0  ],   // títulos principales
+      dark:      [40,  40,  40 ],   // nombres de enlace
+      mid:       [100, 100, 100],   // descripción, conteos
+      light:     [160, 160, 160],   // tags, sublinks, nota
+      hairline:  [200, 200, 200],   // líneas separadoras
+      catLine:   [120, 120, 120],   // línea debajo de categoría
+    };
 
-    // group by category
+    const setTxt  = (rgb) => doc.setTextColor(...rgb);
+    const setDraw = (rgb, lw=0.15) => { doc.setDrawColor(...rgb); doc.setLineWidth(lw); };
+
+    // ── HEADER — solo borde inferior fino, sin relleno ─────────
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(18);
+    setTxt(C.black);
+    doc.text('SUPERLINK72', margin, y + 7);
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8);
+    setTxt(C.mid);
+    doc.text(
+      `Reporte · ${new Date().toLocaleDateString('es-AR')} · ${list.length} enlace${list.length!==1?'s':''}`,
+      margin, y + 13
+    );
+
+    setDraw(C.catLine, 0.3);
+    doc.line(margin, y + 16, pageW - margin, y + 16);
+    y += 22;
+
+    // Nota de instrucción
+    doc.setFontSize(7);
+    setTxt(C.light);
+    doc.text('Clic en el nombre de cada enlace para abrirlo en el navegador.', margin, y);
+    y += 7;
+
+    // ── GRUPOS POR CATEGORÍA ────────────────────────────────────
     const groups = {};
     list.forEach(l => {
       const cat = l.category || 'SIN CATEGORÍA';
@@ -2297,40 +2461,55 @@ function exportPDF() {
     });
 
     const checkPage = (needed) => {
-      if (y + needed > pageH - margin) {
+      if (y + needed > pageH - margin - 8) {
         doc.addPage();
-        doc.setFillColor(10, 15, 10);
-        doc.rect(0, 0, pageW, 10, 'F');
-        y = 18;
+        // Encabezado mínimo en páginas siguientes
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(7);
+        setTxt(C.light);
+        doc.text('SUPERLINK72 (continuación)', margin, 8);
+        setDraw(C.hairline, 0.1);
+        doc.line(margin, 10, pageW - margin, 10);
+        y = 15;
       }
     };
 
-    Object.entries(groups).forEach(([cat, links]) => {
-      checkPage(14);
-      doc.setFillColor(20, 40, 20);
-      doc.rect(margin - 3, y - 5, maxW + 6, 10, 'F');
-      doc.setTextColor(0, 200, 100);
-      doc.setFontSize(12);
-      doc.text(cat.toUpperCase() + `  (${links.length})`, margin, y);
-      y += 8;
+    Object.entries(groups).forEach(([cat, links], gi) => {
+      checkPage(16);
 
-      links.forEach(l => {
-        checkPage(20);
-        doc.setTextColor(200, 230, 200);
+      // Título de categoría: texto negro + línea fina debajo (sin rectángulo)
+      if (gi > 0) y += 3;
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(10);
+      setTxt(C.black);
+      doc.text(`${cat.toUpperCase()}  (${links.length})`, margin, y);
+      setDraw(C.catLine, 0.25);
+      doc.line(margin, y + 2, pageW - margin, y + 2);
+      y += 7;
+
+      links.forEach((l, li) => {
+        checkPage(18);
+
+        // Nombre — negrita, oscuro, con anotación de hipervínculo
+        const nameLabel = `${l.name}`;
+        doc.setFont('helvetica', 'bold');
         doc.setFontSize(10);
-        doc.text(`${l.emoji||'•'} ${l.name}`, margin, y);
-        y += 5;
+        setTxt(C.dark);
+        const nameW = doc.getTextWidth(nameLabel);
+        doc.text(nameLabel, margin + 4, y);
+        // Subrayado fino manual (evita el grueso default del subrayado de jsPDF)
+        setDraw(C.mid, 0.15);
+        doc.line(margin + 4, y + 0.5, margin + 4 + nameW, y + 0.5);
+        // Anotación de link (sin /NewWindow — los lectores lo manejan por defecto)
+        doc.link(margin + 4, y - 4, nameW, 5.5, { url: l.url });
+        doc.setFont('helvetica', 'normal');
+        y += 5.5;
 
-        doc.setTextColor(0, 180, 100);
-        doc.setFontSize(8);
-        const urlLines = doc.splitTextToSize(l.url, maxW - 10);
-        doc.textWithLink(urlLines[0], margin + 4, y, { url: l.url });
-        y += 4;
-
+        // Descripción
         if (l.description) {
-          doc.setTextColor(120, 160, 120);
           doc.setFontSize(8);
-          const descLines = doc.splitTextToSize(l.description, maxW - 10);
+          setTxt(C.mid);
+          const descLines = doc.splitTextToSize(l.description, maxW - 8);
           descLines.forEach(line => {
             checkPage(5);
             doc.text(line, margin + 4, y);
@@ -2338,39 +2517,62 @@ function exportPDF() {
           });
         }
 
-        if (l.sublinks && l.sublinks.length > 0) {
-          l.sublinks.filter(s=>s.url).forEach(s => {
-            checkPage(6);
-            doc.setTextColor(80, 140, 80);
+        // Tags
+        if (l.tags && l.tags.length > 0) {
+          doc.setFontSize(7);
+          setTxt(C.light);
+          doc.text('Tags: ' + l.tags.join(' · '), margin + 4, y);
+          y += 4;
+        }
+
+        // Sublinks — solo etiqueta, como link clickeable
+        const visibleSubs = (l.sublinks||[]).filter(s=>s.url);
+        if (visibleSubs.length > 0) {
+          visibleSubs.forEach(s => {
+            checkPage(5);
+            const slLabel = `↳ ${s.label || 'Subenlace'}`;
             doc.setFontSize(8);
-            const label = s.label ? `↳ ${s.label}: ` : '↳ ';
-            doc.text(label, margin + 6, y);
-            const lw = doc.getTextWidth(label);
-            doc.setTextColor(0, 160, 90);
-            doc.textWithLink(s.url, margin + 6 + lw, y, { url: s.url });
-            y += 4;
+            doc.setFont('helvetica', 'bold');
+            setTxt(C.mid);
+            const slW = doc.getTextWidth(slLabel);
+            doc.text(slLabel, margin + 8, y);
+            setDraw(C.light, 0.12);
+            doc.line(margin + 8, y + 0.5, margin + 8 + slW, y + 0.5);
+            doc.link(margin + 8, y - 3.5, slW, 4.5, { url: s.url });
+            doc.setFont('helvetica', 'normal');
+            y += 4.5;
           });
         }
 
-        y += 3;
-        doc.setDrawColor(30, 60, 30);
-        doc.line(margin, y, pageW - margin, y);
-        y += 3;
+        // Separador entre enlaces: línea punteada muy clara
+        y += 1.5;
+        if (li < links.length - 1) {
+          setDraw(C.hairline, 0.1);
+          // Línea punteada simulada con guiones
+          let xd = margin + 4;
+          while (xd < pageW - margin) {
+            doc.line(xd, y, Math.min(xd + 3, pageW - margin), y);
+            xd += 5;
+          }
+          y += 3;
+        }
       });
-      y += 4;
     });
 
-    // Footer
+    // ── PIE DE PÁGINA ───────────────────────────────────────────
     const pages = doc.internal.getNumberOfPages();
     for (let i = 1; i <= pages; i++) {
       doc.setPage(i);
-      doc.setTextColor(60, 100, 60);
+      setDraw(C.hairline, 0.1);
+      doc.line(margin, pageH - 10, pageW - margin, pageH - 10);
+      doc.setFont('helvetica', 'normal');
       doc.setFontSize(7);
-      doc.text(`SUPERLINK72 — pág. ${i} / ${pages}`, pageW - margin, pageH - 8, { align: 'right' });
+      setTxt(C.light);
+      doc.text(`SUPERLINK72 — pág. ${i} / ${pages}`, pageW - margin, pageH - 6, { align: 'right' });
     }
 
     doc.save(`superlink72_reporte_${Date.now()}.pdf`);
-    showToast('✅ PDF generado');
+    showToast('✅ PDF generado (modo ahorro de tóner)');
   } catch(e) {
     showToast('Error al generar PDF: ' + e.message, 'error');
     console.error(e);

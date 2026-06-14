@@ -563,138 +563,189 @@ body.dark .browse-cat-subgroup { border-left-color: var(--border2); }
 .browse-cat-label::before { content: '↳'; color: var(--border2); }
 
 /* ============================================================
-   LINK CARDS — with clickable title, hidden URL
+   LINK LIST — compact directory rows
    ============================================================ */
-.links-grid { display: grid; gap: 10px; }
-
-.link-card {
-  background: var(--card);
-  border: 2px solid var(--border);
-  border-left: 5px solid var(--teal);
-  padding: 14px 16px;
-  transition: border-color 0.15s, box-shadow 0.15s;
-  animation: fadeUp 0.25s ease;
-  position: relative;
-}
-
-body.dark .link-card { border-color: var(--border2); border-left-color: var(--teal); }
-
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.link-card:hover {
-  border-color: var(--orange);
-  border-left-color: var(--orange);
-  box-shadow: var(--shadow);
+/* The container is now a list, not a grid */
+.links-grid {
+  display: block;
+  border: 2px solid var(--border);
+  background: var(--card);
+  animation: fadeUp 0.2s ease;
 }
 
-.link-card-top {
+body.dark .links-grid { border-color: var(--border2); background: var(--bg2); }
+
+/* Each row = one link */
+.link-row {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 8px;
+  align-items: center;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.12s;
+  position: relative;
+  min-height: 38px;
 }
 
-.link-emoji-circle {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  background: var(--orange);
-  display: flex; align-items: center; justify-content: center;
+body.dark .link-row { border-bottom-color: var(--border2); }
+.link-row:last-child { border-bottom: none; }
+
+.link-row:hover { background: var(--bg2); }
+body.dark .link-row:hover { background: var(--bg3); }
+
+/* Left accent stripe — matches category color, shown on hover */
+.link-row::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--teal);
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+
+.link-row:hover::before { opacity: 1; }
+
+/* Emoji — small, left column */
+.link-row-emoji {
+  font-size: 14px;
+  padding: 0 10px 0 12px;
   flex-shrink: 0;
-  font-size: 18px;
+  line-height: 1;
+  opacity: 0.75;
 }
 
-.link-info { flex: 1; min-width: 0; }
-
-/* THE CLICKABLE TITLE — opens link, big and bold */
-.link-name-btn {
+/* Clickable title — the main element, opens link */
+.link-row-name {
   font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 18px;
-  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   color: var(--nearblack);
   background: none;
   border: none;
   cursor: pointer;
   text-align: left;
-  padding: 0;
-  display: block;
-  width: 100%;
-  transition: color 0.15s;
+  padding: 9px 6px 9px 0;
+  flex: 1;
+  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.12s;
+  line-height: 1.2;
 }
 
-body.dark .link-name-btn { color: var(--cream); }
+body.dark .link-row-name { color: var(--cream); }
 
-.link-name-btn:hover {
+.link-row-name:hover {
   color: var(--orange);
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
-/* Category badge under title */
-.link-cat-badge {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: white;
-  background: var(--teal);
-  padding: 2px 8px;
-  display: inline-block;
-  margin-top: 4px;
-}
-
-.link-desc {
-  font-size: 12px;
-  color: var(--text2);
-  margin-top: 6px;
-  line-height: 1.5;
-}
-
-.link-date {
+/* Optional short description — muted, inline after name on wider screens */
+.link-row-desc {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   color: var(--text3);
+  padding: 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 260px;
+  flex-shrink: 1;
 }
 
-.link-card-date-box {
-  text-align: right;
+@media (max-width: 640px) { .link-row-desc { display: none; } }
+
+/* Tags — small inline pills */
+.link-row-tags {
+  display: flex;
+  gap: 4px;
+  padding: 0 8px;
   flex-shrink: 0;
-  background: var(--mustard);
-  padding: 4px 8px;
-  min-width: 44px;
 }
 
-.link-card-date-box .dd {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 20px;
-  line-height: 1;
-  color: var(--nearblack);
-  display: block;
-}
+@media (max-width: 760px) { .link-row-tags { display: none; } }
 
-.link-card-date-box .mmyy {
+.link-row-tag {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 10px;
   letter-spacing: 1px;
-  color: var(--nearblack);
   text-transform: uppercase;
+  padding: 1px 6px;
+  border: 1px solid var(--border2);
+  color: var(--text3);
+  background: var(--bg3);
+  cursor: pointer;
+  transition: all 0.12s;
+  white-space: nowrap;
 }
 
-.link-card-actions {
+.link-row-tag:hover { border-color: var(--teal); color: var(--teal); }
+
+/* Date — compact, right side */
+.link-row-date {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text3);
+  padding: 0 10px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 500px) { .link-row-date { display: none; } }
+
+/* Action buttons — hidden by default, revealed on hover */
+.link-row-actions {
   display: flex;
-  gap: 6px;
-  margin-top: 10px;
-  flex-wrap: wrap;
+  gap: 0;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.15s;
+  border-left: 1px solid var(--border);
+}
+
+body.dark .link-row-actions { border-left-color: var(--border2); }
+
+.link-row:hover .link-row-actions { opacity: 1; }
+
+.link-row-btn {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0 12px;
+  height: 38px;
+  border: none;
+  border-left: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  color: var(--text3);
+  transition: background 0.12s, color 0.12s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+body.dark .link-row-btn { border-left-color: var(--border2); }
+
+.link-row-btn:first-child { border-left: none; }
+
+.link-row-btn:hover { background: var(--teal); color: white; }
+.link-row-btn.edit:hover  { background: var(--orange); color: white; }
+.link-row-btn.del:hover   { background: var(--red); color: white; }
+
+/* Mobile: always show actions (can't hover on touch) */
+@media (max-width: 600px) {
+  .link-row-actions { opacity: 1; }
 }
 
 /* ============================================================
@@ -1744,7 +1795,7 @@ let editingId = null;
 function buildForm(containerId, link) {
   selectedEmoji = link ? (link.emoji || '🔗') : '🔗';
 
-  const catOptions = db.categories.map(c =>
+  const catOptions = [...db.categories].sort((a,b)=>a.localeCompare(b)).map(c =>
     `<option value="${escH(c)}" ${link && link.category === c ? 'selected' : ''}>${escH(c)}</option>`
   ).join('');
 
@@ -2159,7 +2210,7 @@ function renderCatManage() {
     container.innerHTML = `<div class="empty-state"><span class="big">🗂</span>No hay categorías todavía.</div>`;
     return;
   }
-  container.innerHTML = db.categories.map(cat => {
+  container.innerHTML = [...db.categories].sort((a,b)=>a.localeCompare(b)).map(cat => {
     const count = db.links.filter(l => l.category === cat).length;
     const inSC  = db.supercats.find(s => s.cats.includes(cat));
     return `
@@ -2245,7 +2296,7 @@ function renderSuperCats() {
     return;
   }
 
-  const allCats = db.categories;
+  const allCats = [...db.categories].sort((a,b)=>a.localeCompare(b));
   container.innerHTML = db.supercats.map(sc => {
     const linkCount = db.links.filter(l => sc.cats.includes(l.category||'')).length;
 

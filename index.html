@@ -706,14 +706,10 @@ body.dark .link-row-name { color: var(--cream); }
   display: flex;
   gap: 0;
   flex-shrink: 0;
-  opacity: 0;
-  transition: opacity 0.15s;
   border-left: 1px solid var(--border);
 }
 
 body.dark .link-row-actions { border-left-color: var(--border2); }
-
-.link-row:hover .link-row-actions { opacity: 1; }
 
 .link-row-btn {
   font-family: var(--font-display);
@@ -2120,34 +2116,16 @@ function toggleBrowseSC(id) {
 }
 
 function renderLinkCard(l) {
-  const dt = fmtDate(l.created);
-  const catBadge = l.category
-    ? `<span class="link-cat-badge">${escH(l.category)}</span>`
-    : '';
-  const tags = (l.tags||[]).map(t =>
-    `<span class="tag" onclick="quickTagFilter('${escA(t)}')">${escH(t)}</span>`
-  ).join('');
-
   return `
-    <div class="link-card" id="card_${l.id}">
-      <div class="link-card-top">
-        <div class="link-emoji-circle">${l.emoji || '🔗'}</div>
-        <div class="link-info">
-          <button class="link-name-btn" onclick="window.open('${escH(l.url)}','_blank','noopener')"
-                  title="${escH(l.url)}">${escH(l.name)}</button>
-          ${catBadge}
-          ${l.description ? `<div class="link-desc">${escH(l.description)}</div>` : ''}
-          ${tags.length ? `<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px">${tags}</div>` : ''}
-        </div>
-        <div class="link-card-date-box">
-          <span class="dd">${dt.dd}</span>
-          <span class="mmyy">${dt.mm}<br>${dt.yy}</span>
-        </div>
-      </div>
-      <div class="link-card-actions">
-        <button class="btn btn-teal btn-sm" onclick="window.open('${escH(l.url)}','_blank','noopener')">👁 ABRIR</button>
-        <button class="btn btn-sm btn-orange" onclick="editLink('${l.id}')">✏ EDITAR</button>
-        <button class="btn btn-sm btn-danger" onclick="deleteLink('${l.id}')">🗑 ELIMINAR</button>
+    <div class="link-row" id="card_${l.id}">
+      <span class="link-row-emoji">${l.emoji || '🔗'}</span>
+      <button class="link-row-name"
+              onclick="window.open('${escH(l.url)}','_blank','noopener')"
+              title="${escH(l.url)}">${escH(l.name)}</button>
+      <div class="link-row-actions">
+        <button class="link-row-btn"      onclick="window.open('${escH(l.url)}','_blank','noopener')">↗ ABRIR</button>
+        <button class="link-row-btn edit" onclick="editLink('${l.id}')">✏ EDITAR</button>
+        <button class="link-row-btn del"  onclick="deleteLink('${l.id}')">🗑 ELIMINAR</button>
       </div>
     </div>`;
 }
